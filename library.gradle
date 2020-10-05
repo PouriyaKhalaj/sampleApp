@@ -1,0 +1,153 @@
+ext.sdk  = [
+        compileSdk : 30,
+        minSdk     : 19,
+        targetSDk  : 30,
+        versionCode: 52,
+        versionName: "1.0.0"
+]
+ext.versions = [
+        kotlin_version             :'1.4.10',
+        supportLibraryVersion      : '28.0.0',
+
+        constraintLayoutVersion    : '1.1.3',
+        lifeCycleExtionsionsVersion: '1.1.1',
+        nav_version                : '2.3.0-alpha05',
+        roomVersion              : '1.1.1-alpha1',
+
+        pagingVersion            : '1.0.1',
+
+        supportMultidexVersion   : '1.0.3',
+
+        dagger2Version           : '2.18',
+
+        gsonVersion              : '2.8.5',
+        okHttp3Version           : '3.12.0',
+        retrofit2Version         : '2.5.0',
+        coroutinesVersion        : '1.1.1',
+        retrofitCoroutinesAdapter: '0.9.2',
+        rxJavaVersion            : '2.1.12',
+        rxAndroidVersion         : '2.0.2',
+
+        glideVersion             : '4.11.0',
+
+        googleMap                : '16.1.0',
+        googleLocation           : '16.0.0',
+        firebase_core            : '17.0.1',
+        firebase_msg             : '19.0.1',
+        firebase_analytic        : '17.0.1',
+        firebase_crash           : '2.10.1',
+        firebase_crash_ndk       : '2.1.0',
+        firebase_inapp           : '18.0.2',
+
+        junitVersion             : '4.12',
+        robolectricVersion       : '4.0.2',
+        espressoCoreVersion      : '3.0.2',
+        androidXTestCoreVersion    : '1.1.0',
+        espressoTestRunnerVersion  : '1.0.2',
+        androidXTestRunnerVersion  : '1.1.1',
+        androidArchTestCoreVersion : '1.1.1',
+
+        flashVersion               : '0.0.1',
+        appIntroVersion            : 'v4.2.3',
+        rootBearVersion            : '0.0.7',
+        easyImageVersion           : '1.3.1',
+        chromeCustomTabsVersion        : '23.3.0',
+        pageIndicatorViewVersion       : '1.2.2',
+        runtimePermissionVersion       : '3.8',
+
+        camerax_version                : '1.0.0-alpha01',
+        play_services_vision           : '19.0.0',
+        lifecycle_version              : '2.2.0',
+        lottieVersion                  : '3.4.0'
+]
+ext.deps = [
+        kotlin                         :  "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin_version",
+        kotlinCore                     :  'androidx.core:core-ktx:1.2.0',
+
+        supportCompat                  : 'androidx.appcompat:appcompat:1.0.0',
+        supportv4                      : 'androidx.legacy:legacy-support-v4:1.0.0',
+        supportDesign                  : 'com.google.android.material:material:1.3.0-alpha01',
+        supportCardView                : 'androidx.cardview:cardview:1.0.0',
+        supportPreference              : 'androidx.preference:preference:1.0.0',
+        recyclerView                   : 'androidx.recyclerview:recyclerview:1.2.0-alpha02',
+        chromeCustomTabs               : 'androidx.browser:browser:1.0.0',
+
+        supportMultidex                : 'androidx.multidex:multidex:2.0.0',
+
+        constraintLayout               : 'androidx.constraintlayout:constraintlayout:1.1.3',
+
+        navigationFragment             : "androidx.navigation:navigation-fragment-ktx:$versions.nav_version",
+        navigationUi                   : "androidx.navigation:navigation-ui-ktx:$versions.nav_version",
+
+        lifeCycleExtensions            : "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle_version",
+        lifeCycleViewModel             : "androidx.lifecycle:lifecycle-viewmodel:$versions.lifecycle_version",
+
+        paging                         : 'androidx.paging:paging-runtime:2.0.0',
+
+        gson                           : "com.google.code.gson:gson:2.8.5",
+
+        dagger                         : "com.google.dagger:dagger:$versions.dagger2Version",
+        daggerCompiler                 : "com.google.dagger:dagger-compiler:$versions.dagger2Version",
+
+        rxAndroid                      : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroidVersion",
+        rxJava                         : "io.reactivex.rxjava2:rxjava:$versions.rxJavaVersion",
+
+        roomRuntime                    : 'androidx.room:room-runtime:2.0.0',
+        roomCompiler                   : 'androidx.room:room-compiler:2.0.0',
+
+        retrofit                       : "com.squareup.retrofit2:retrofit:$versions.retrofit2Version",
+
+        okHttp                         : "com.squareup.okhttp3:okhttp:$versions.okHttp3Version",
+        okHttpLogging                  : "com.squareup.okhttp3:logging-interceptor:$versions.okHttp3Version",
+        retrofitRxAdapter              : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit2Version",
+        retrofitGsonAdapter            : "com.squareup.retrofit2:converter-gson:$versions.retrofit2Version",
+
+        runtimePermission              : "com.nabinbhandari.android:permissions:$versions.runtimePermissionVersion",
+
+        rootBear                       : "com.scottyab:rootbeer-lib:$versions.rootBearVersion",
+
+        firebase_core                  : "com.google.firebase:firebase-core:$versions.firebase_core",
+        firebase_msg                   : "com.google.firebase:firebase-messaging:$versions.firebase_msg",
+        firebase_analytic              : "com.google.firebase:firebase-analytics:$versions.firebase_analytic",
+        firebase_crash                 : "com.crashlytics.sdk.android:crashlytics:$versions.firebase_crash",
+        firebase_crash_ndk             : "com.crashlytics.sdk.android:crashlytics-ndk:$versions.firebase_crash_ndk",
+        firebase_inapp                 : "com.google.firebase:firebase-inappmessaging-display:$versions.firebase_inapp",
+
+        googleMap                      : "com.google.android.gms:play-services-maps:$versions.googleMap",
+        googleLocation                 : "com.google.android.gms:play-services-location:$versions.googleLocation",
+
+        glide                          : "com.github.bumptech.glide:glide:$versions.glideVersion",
+        glideCompiler                  : "com.github.bumptech.glide:compiler:$versions.glideVersion",
+        glideOkhttp                    : "com.github.bumptech.glide:okhttp3-integration:4.9.0",
+
+        junit                          : "junit:junit:4.12",
+        androidXTestCore               : "androidx.test:core:1.1.0",
+        androidXTestRunner             : "androidx.test:runner:1.1.0",
+        robolectric                    : "org.robolectric:robolectric:4.2",
+        androidArchTestCore            : 'androidx.arch.core:core-testing:2.0.0',
+        espressoTestRunner             : 'androidx.test:runner:1.1.0',
+        espressoCore                   : 'androidx.test.espresso:espresso-core:3.2.0',
+        androidXTestJunit              : 'androidx.test.ext:junit:1.1.1',
+
+        pageIndicatorView              : "me.relex:circleindicator:$versions.pageIndicatorViewVersion",
+        appIntro                       : "com.github.apl-devs:appintro:$versions.appIntroVersion",
+
+        easyImage                      : "com.github.jkwiecien:EasyImage:$versions.easyImageVersion",
+
+        coroutinesCore                 : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutinesVersion",
+        coroutinesAndroid              : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutinesVersion",
+        retrofitKotlinCoroutinesAdapter: "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$versions.retrofitCoroutinesAdapter",
+
+        flash                          : "com.github.Abhi347:NoobCameraFlash:$versions.flashVersion",
+
+        camera_core                    : "androidx.camera:camera-core:$versions.camerax_version",
+        camera                         : "androidx.camera:camera-camera2:$versions.camerax_version",
+        playServicesVision             : "com.google.android.gms:play-services-vision:$versions.play_services_vision",
+
+
+        spanny                         : 'com.binaryfork:spanny:1.0.4',
+        lottie                         : "com.airbnb.android:lottie:$versions.lottieVersion",
+        qrCodeReaderView               : 'com.dlazaro66.qrcodereaderview:qrcodereaderview:2.0.3',
+        persianDate                    : 'com.github.samanzamani.persiandate:PersianDate:0.8',
+        roundedimageview               : 'com.makeramen:roundedimageview:2.3.0',
+]

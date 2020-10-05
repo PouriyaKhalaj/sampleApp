@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:fontFamily">@font/irsans_light</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="@style/Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:fontFamily">@font/irsans_light</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.FullScreen" parent="@style/Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fontFamily">@font/irsans</item>
+    </style>
+
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:fontFamily">@font/irsans_bold</item>
+    </style>
+
+    <style name="AppTheme.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="tabIndicatorColor">@color/white</item>
+
+    </style>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.MaterialComponents.Light">
+        <item name="android:fontFamily">@font/irsans_bold</item>
+        <!--This line changes the color of text in Toolbar-->
+        <item name="android:textColorPrimary">@color/black</item>
+        <!--This line changes the color of icons in toolbar (back, overflow menu icons)-->
+        <item name="android:textColorSecondary">@color/colorPrimary</item>
+        <!--        <item name="android:textColorTertiary">@color/black</item>-->
+    </style>
+
+
+    <style name="ToolbarThemeDark" parent="ThemeOverlay.MaterialComponents.Light">
+        <item name="android:fontFamily">@font/irsans_bold</item>
+        <!--This line changes the color of text in Toolbar-->
+        <item name="android:textColorPrimary">@color/black</item>
+        <!--This line changes the color of icons in toolbar (back, overflow menu icons)-->
+        <item name="android:textColorSecondary">@color/colorPrimary</item>
+        <!--        <item name="android:textColorTertiary">@color/black</item>-->
+    </style>
+
+    <style name="CardViewStyle" parent="CardView">
+        <item name="cardCornerRadius">0dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardMaxElevation">@dimen/dimen_4</item>
+        <item name="cardUseCompatPadding">false</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="android:layout_margin">@dimen/dimen_8</item>
+    </style>
+
+    <style name="MaterialTextButtonBlack" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="colorPrimary">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="iconTint">@color/black</item>
+        <item name="rippleColor">@color/black_ripple</item>
+        <item name="android:fontFamily">@font/irsans_medium</item>
+    </style>
+
+    <style name="MaterialTextButtonBlue" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="colorPrimary">@color/blue_click</item>
+        <item name="android:textColor">@color/blue_click</item>
+        <item name="iconTint">@color/blue_click</item>
+        <item name="rippleColor">@color/blue_click_ripple</item>
+        <item name="android:fontFamily">@font/irsans_medium</item>
+    </style>
+
+    <style name="MaterialTextButtonRed" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="colorPrimary">@color/red_error</item>
+        <item name="backgroundTint">@color/transparent</item>
+        <item name="android:textColor">@color/red_error</item>
+        <item name="iconTint">@color/red_error</item>
+        <item name="rippleColor">@color/red_ripple</item>
+        <item name="android:fontFamily">@font/irsans_medium</item>
+    </style>
+
+    <style name="TextMessageStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/irsans_medium</item>
+    </style>
+
+    <style name="TextTitleStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/irsans_bold</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,102 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs"
+
+android {
+
+    compileSdkVersion sdk.compileSdk
+    defaultConfig {
+        minSdkVersion sdk.minSdk
+        targetSdkVersion sdk.targetSDk
+        versionCode sdk.versionCode
+        versionName sdk.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "enableDebugLogging", "true"
+        }
+        release {
+            minifyEnabled false
+            buildConfigField "boolean", "enableDebugLogging", "false"
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions 'default'
+    productFlavors {
+        sandBox {
+            dimension = 'default'
+            buildConfigField "String", "baseUrl", "\"http://omdbapi.com/\""
+        }
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    
+    /**
+     * Support
+     */
+    api deps.kotlin
+    api deps.paging
+    api deps.supportCompat
+    api deps.supportDesign
+    api deps.constraintLayout
+    api deps.lifeCycleExtensions
+    api deps.lifeCycleViewModel
+    api deps.supportPreference
+    api deps.supportv4
+    api deps.recyclerView
+    api deps.navigationFragment
+    api deps.navigationUi
+
+    /**
+     * Retrofit
+     */
+    api deps.okHttp
+    api deps.okHttpLogging
+    api deps.retrofitRxAdapter
+    api deps.retrofitGsonAdapter
+    api deps.retrofitKotlinCoroutinesAdapter
+
+    /**
+     * Coroutines
+     */
+    api deps.coroutinesCore
+    api deps.coroutinesAndroid
+
+    /**
+     * Dagger2
+     */
+    api deps.dagger
+    kapt deps.daggerCompiler
+
+    /**
+     * Glide
+     */
+    api deps.glide
+    api deps.glideOkhttp
+    kapt deps.glideCompiler
+
+    /**
+     * Test
+     */
+    testImplementation deps.junit
+    testImplementation deps.androidXTestRunner
+    testImplementation deps.androidXTestCore
+    testImplementation deps.androidArchTestCore
+    testImplementation deps.robolectric
+    androidTestImplementation deps.espressoTestRunner
+    androidTestImplementation deps.espressoCore
+
+}

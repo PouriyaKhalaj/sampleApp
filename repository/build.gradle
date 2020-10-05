@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion sdk.compileSdk
+
+    defaultConfig {
+        minSdkVersion sdk.minSdk
+        targetSdkVersion sdk.targetSDk
+        versionCode sdk.versionCode
+        versionName sdk.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions 'default'
+    productFlavors {
+        sandBox {
+            dimension = 'default'
+            buildConfigField "String", "apikey", "\"4f588b70\""
+        }
+    }
+}
+
+dependencies {
+    /**
+     * modules
+     */
+    api project(':common')
+
+    /**
+     * Dagger
+     */
+    api deps.dagger
+    kapt deps.daggerCompiler
+}

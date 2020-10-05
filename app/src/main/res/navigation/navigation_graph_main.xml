@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/moviesFragment">
+    <fragment
+        android:id="@+id/moviesFragment"
+        android:name="ir.co.avatar.ui.movies.MoviesFragment"
+        android:label="MoviesFragment">
+        <action
+            android:id="@+id/action_moviesFragment_to_movieInfoFragment"
+            app:destination="@id/movieInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieInfoFragment"
+        android:name="ir.co.avatar.ui.movies.MovieInfoFragment"
+        android:label="MovieInfoFragment">
+        <argument
+            android:name="movie"
+            app:argType="ir.co.common.dto.MovieModel" />
+    </fragment>
+</navigation>

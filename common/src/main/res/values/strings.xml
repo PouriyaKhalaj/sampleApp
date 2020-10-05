@@ -1,0 +1,15 @@
+<resources>
+    <string name="str_accept">تایید</string>
+    <string name="str_close">بستن</string>
+    <string name="str_error">خطا</string>
+
+    <string name="str_retry">تلاش مجدد</string>
+    <string name="str_title_internet_error">عدم اتصال به اینترنت</string>
+    <string name="str_network_error">اتصال شما به اینترنت برقرار نیست</string>
+    <string name="str_title_server_error">عدم اتصال به سرور</string>
+    <string name="str_runtime_error">خطای زمان اجرا</string>
+
+    <string name="str_error_authorization">جلسه کاری شما منقضی شده است برنامه دوباره راه‌اندازی می شود.</string>
+
+    <string name="str_invalid_user">برای استفاده از این بخش ابتدا مرحله ثبت‌‌ نام را تکمیل کنید.</string>
+</resources>

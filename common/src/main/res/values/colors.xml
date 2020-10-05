@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008c78</color>
+    <color name="colorPrimaryDark">#0c000000</color>
+    <color name="colorAccent">#008c78</color>
+
+    <color name="black">#000000</color>
+    <color name="black_ripple">#4D000000</color>
+    <color name="black_transparent">#66000000</color>
+    <color name="black_dark_transparent">#80000000</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="toolbar_transapent">#66ffffff</color>
+    <color name="colorTextIntro">#b1b1b1</color>
+
+    <color name="background_layout">#f5f5f5</color>
+    <color name="statusBarColor">#f2f2f2</color>
+
+    <color name="progress">#F8A726</color>
+
+    <color name="selected">#EBBE65</color>
+
+    <color name="gray_50">#FAFAFA</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_600">#757575</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_800">#424242</color>
+    <color name="gray_900">#212121</color>
+
+    <color name="gray_divide">#e6e6e6</color>
+
+
+    <color name="gray_toolbar">#506e64</color>
+    <color name="greenText_toolbar">#a0f050</color>
+
+    <color name="green_50">#DBE6DA</color>
+    <color name="green_100">#BAD7B7</color>
+    <color name="green_200">#99C495</color>
+    <color name="green_300">#7AB273</color>
+    <color name="green_400">#66A55C</color>
+    <color name="green_500">#549948</color>
+    <color name="green_600">#4A8840</color>
+    <color name="green_700">#3F7736</color>
+    <color name="green_800">#35662D</color>
+    <color name="green_900">#35662D</color>
+    <color name="green_old">#009650</color>
+
+
+    <!--color related to custom button should change-->
+    <color name="blue_pressed">@color/green_700</color>
+    <color name="blue_normal">@color/green_400</color>
+    <color name="green_complete">#ff99cc00</color>
+    <color name="purple_progress">#ffaa66cc</color>
+    <color name="red_error">#ffff4444</color>
+    <color name="red_ripple">#4DFF4444</color>
+
+    <color name="holo_blue_bright">#ff00ddff</color>
+    <color name="holo_green_light">#ff99cc00</color>
+    <color name="holo_orange_light">#ffffbb33</color>
+    <color name="holo_red_light">#ffff4444</color>
+
+    <color name="black_overlay">#66000000</color>
+
+    <color name="blue_click">#008cff</color>
+    <color name="blue_click_ripple">#4D008CFF</color>
+    <color name="blue_background">#E5F3FF</color>
+    <color name="green_background">#E6F6F2</color>
+    <color name="currencyColor">#979797</color>
+    <color name="greenTheme">#008c78</color>
+    <color name="green_ripple">#4D008C78</color>
+    <color name="grayText">#505050</color>
+    <color name="greenText">#28a028</color>
+
+    <color name="btnBorderGreen">#64C8AA</color>
+    <color name="btnContentGreen">#00A078</color>
+
+    <color name="blackText">#282828</color>
+</resources>
