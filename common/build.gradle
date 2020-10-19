@@ -32,7 +32,7 @@ android {
     productFlavors {
         sandBox {
             dimension = 'default'
-            buildConfigField "String", "baseUrl", "\"http://omdbapi.com/\""
+            buildConfigField "String", "baseUrl", "\"https://reqres.in/api/\""
         }
     }
 
@@ -87,6 +87,12 @@ dependencies {
     api deps.glide
     api deps.glideOkhttp
     kapt deps.glideCompiler
+
+    /**
+     * Room
+     */
+    api deps.roomRuntime
+    kapt deps.roomCompiler
 
     /**
      * Test

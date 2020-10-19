@@ -167,4 +167,16 @@ abstract class FragmentBase<T : ViewDataBinding> : Fragment() {
     fun convertDpToPixelInt(dp: Int): Int {
         return (dp * (resources.displayMetrics.densityDpi.toFloat() / 160.0f)).toInt()
     }
+
+    fun darkMode(on: Boolean) {
+        if (on) {
+            val view: View = requireActivity().window.decorView
+            view.systemUiVisibility =
+                view.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        } else {
+            val view: View = requireActivity().window.decorView
+            view.systemUiVisibility =
+                view.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+        }
+    }
 }

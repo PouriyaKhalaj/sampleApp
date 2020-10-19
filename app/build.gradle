@@ -8,7 +8,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "ir.co.avatar"
+        applicationId "ir.co.sample"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -66,4 +66,21 @@ dependencies {
      */
     api deps.dagger
     kapt deps.daggerCompiler
+
+    /**
+     * Room
+     */
+    api deps.roomRuntime
+    kapt deps.roomCompiler
+
+    /**
+     * Test
+     */
+    testImplementation deps.junit
+    testImplementation deps.androidXTestRunner
+    testImplementation deps.androidXTestCore
+    testImplementation deps.androidArchTestCore
+    testImplementation deps.robolectric
+    androidTestImplementation deps.espressoTestRunner
+    androidTestImplementation deps.espressoCore
 }

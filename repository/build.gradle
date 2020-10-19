@@ -43,4 +43,10 @@ dependencies {
      */
     api deps.dagger
     kapt deps.daggerCompiler
+
+    /**
+     * Room
+     */
+    api deps.roomRuntime
+    kapt deps.roomCompiler
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008c78</color>
-    <color name="colorPrimaryDark">#0c000000</color>
+    <color name="colorPrimary">#541099</color>
+    <color name="colorPrimaryDark">#480d81</color>
     <color name="colorAccent">#008c78</color>
 
     <color name="black">#000000</color>
@@ -31,7 +31,7 @@
     <color name="gray_800">#424242</color>
     <color name="gray_900">#212121</color>
 
-    <color name="gray_divide">#e6e6e6</color>
+    <color name="gray_divide">#eee6e3</color>
 
 
     <color name="gray_toolbar">#506e64</color>

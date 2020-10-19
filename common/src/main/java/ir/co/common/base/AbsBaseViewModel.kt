@@ -16,6 +16,7 @@ abstract class AbsBaseViewModel : ViewModel(), BaseViewModel, LifecycleObserver 
     private val showErrorEvent: SingleLiveEvent<NetworkState> = SingleLiveEvent()
 
     private val onShowToast: SingleLiveEvent<String> = SingleLiveEvent()
+    open val backPressedClicked: SingleLiveEvent<Any> = SingleLiveEvent()
 
     open val onShowProgressBar: SingleLiveEvent<Boolean> = SingleLiveEvent()
     open var network: LiveData<NetworkState> = MutableLiveData()
@@ -29,7 +30,9 @@ abstract class AbsBaseViewModel : ViewModel(), BaseViewModel, LifecycleObserver 
 
     override fun showToastMessage(): SingleLiveEvent<String> = onShowToast
 
-
+    override fun onBackPressedClicked() {
+        backPressedClicked.postValue(Any())
+    }
 
 
     private val job = Job()
@@ -47,5 +50,4 @@ abstract class AbsBaseViewModel : ViewModel(), BaseViewModel, LifecycleObserver 
     }
 
     abstract fun onCreateDone()
-
 }

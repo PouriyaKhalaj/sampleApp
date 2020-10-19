@@ -52,7 +52,8 @@ abstract class ActivityBase : AppCompatActivity(), OnActivityEventHandler {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        windowsStatus()
+        darkMode(false)
+//        windowsStatus()
         setContentView(getResourceLayoutId())
 
     }
@@ -61,7 +62,7 @@ abstract class ActivityBase : AppCompatActivity(), OnActivityEventHandler {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window?.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimaryDark)
+            window?.statusBarColor = ContextCompat.getColor(this, R.color.white)
         }
     }
 

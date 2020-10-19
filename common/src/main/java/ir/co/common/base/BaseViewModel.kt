@@ -20,11 +20,11 @@ interface BaseViewModel {
 
     fun onRetry()
 
-    fun onCloseDialog() {
-
-    }
+    fun onCloseDialog() {}
 
     fun getHideKeyboard(): SingleLiveEvent<Any>
+
+    fun onBackPressedClicked()
 
     fun getNetworkEventShow(): SingleLiveEvent<NetworkState>
 
@@ -39,12 +39,19 @@ interface BaseViewModel {
 
     fun showToastMessage(): SingleLiveEvent<String>
 
-    fun handleError(t: Throwable, returnError: ((errorCode: Long, message: String) -> Unit)? = null) {
+    fun handleError(
+        t: Throwable,
+        returnError: ((errorCode: Long, message: String) -> Unit)? = null
+    ) {
         hideProgressAction()
         when (t) {
             is EOFException -> getNetworkEventShow().postValue(NetworkState.error(ErrorType.EofException))
             is FormatException -> getNetworkEventShow().postValue(NetworkState.error(ErrorType.FormatException))
-            is IOException, is UnknownHostException -> getNetworkEventShow().postValue(NetworkState.error(ErrorType.Network))
+            is IOException, is UnknownHostException -> getNetworkEventShow().postValue(
+                NetworkState.error(
+                    ErrorType.Network
+                )
+            )
             is HttpException -> when {
                 t.code() == 401 -> {
                     getNetworkEventShow().postValue(NetworkState.error(ErrorType.Authorization))

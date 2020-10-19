@@ -3,7 +3,6 @@ package ir.co.common.base
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import ir.co.common.dto.EmptyMessage
@@ -30,10 +29,10 @@ abstract class ActivityParent<T : AbsBaseViewModel> : ActivityBase() {
     private fun init() {
         viewModel = ViewModelProviders.of(this, getFactory()).get(getViewModelClass())
         lifecycle.addObserver(viewModel)
-        viewModel.onEmptyList.observe(this, Observer {
+        viewModel.onEmptyList.observe(this) {
             emptyListMessageHandler(it)
-        })
-        viewModel.network.observe(this, Observer {
+        }
+        viewModel.network.observe(this) {
             when (it?.status) {
                 Status.RUNNING -> showProgress()
                 Status.FAILED -> {
@@ -42,8 +41,8 @@ abstract class ActivityParent<T : AbsBaseViewModel> : ActivityBase() {
                 }
                 else -> hideProgress()
             }
-        })
-        viewModel.getNetworkEventShow().observe(this, Observer {
+        }
+        viewModel.getNetworkEventShow().observe(this) {
             when (it.status) {
                 Status.FAILED -> {
                     hideProgress()
@@ -52,11 +51,14 @@ abstract class ActivityParent<T : AbsBaseViewModel> : ActivityBase() {
                 Status.SUCCESS -> hideProgress()
                 else -> showProgress()
             }
-        })
+        }
 
-        viewModel.getHideKeyboard().observe(this, Observer {
+        viewModel.getHideKeyboard().observe(this) {
             hideKeyboard()
-        })
+        }
+        viewModel.backPressedClicked.observe(this) {
+            onBackPressed()
+        }
     }
 
     override fun onStartActivity(intent: Intent, finished: Boolean) {

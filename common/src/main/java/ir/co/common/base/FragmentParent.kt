@@ -8,6 +8,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 import ir.co.common.dto.NetworkState
 import ir.co.common.dto.Status
@@ -47,7 +48,7 @@ abstract class FragmentParent<T : AbsBaseViewModel, K : ViewDataBinding> : Fragm
             LogHelper(this::class.java).e("OkHttp", "getNetworkEventShow:: $it")
             handleNetwork(it)
         })
-        viewModel.onEmptyList.observe(this, Observer {
+        viewModel.onEmptyList.observe(this, {
             emptyListMessageHandler(it)
         })
 
@@ -57,6 +58,9 @@ abstract class FragmentParent<T : AbsBaseViewModel, K : ViewDataBinding> : Fragm
         viewModel.showToastMessage().observe(this, Observer {
             showToast(it)
         })
+        viewModel.backPressedClicked.observe(this) {
+            findNavController().navigateUp()
+        }
     }
 
     override fun showProgress() {

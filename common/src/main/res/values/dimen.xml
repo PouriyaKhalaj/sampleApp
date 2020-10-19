@@ -5,6 +5,7 @@
     <dimen name="dimen_56">56dp</dimen>
     <dimen name="dimen_48">48dp</dimen>
     <dimen name="dimen_32">32dp</dimen>
+    <dimen name="dimen_30">30dp</dimen>
     <dimen name="dimen_24">24dp</dimen>
     <dimen name="dimen_16">16dp</dimen>
     <dimen name="dimen_14">14dp</dimen>
@@ -19,8 +20,10 @@
 
     <dimen name="corner_radius">20dp</dimen>
     <dimen name="card_view_radius">8dp</dimen>
+    <dimen name="toolbar_elevation">16dp</dimen>
 
     <dimen name="default_font_size">14sp</dimen>
     <dimen name="btn_font_size">16sp</dimen>
+    <dimen name="font_size_22sp">22sp</dimen>
 
 </resources>

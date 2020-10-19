@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="userInfoVm"
+            type="ir.co.sample.viewmodel.UserInfoViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_layout"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar"
+            android:background="@color/colorPrimary"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="@dimen/toolbar_elevation"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ir.co.common.widget.ImageViewCustom
+                android:layout_width="@dimen/dimen_24"
+                android:layout_height="@dimen/dimen_24"
+                android:layout_margin="@dimen/dimen_12"
+                android:background="?selectableItemBackgroundBorderless"
+                android:onClick="@{()->userInfoVm.onBackPressedClicked()}"
+                android:padding="@dimen/dimen_4"
+                android:src="@drawable/ic_go_back_left_arrow"
+                android:tint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{userInfoVm.userInfo.firstName.concat(" ").concat(userInfoVm.userInfo.lastName)}'
+                android:textAppearance="@style/ToolbarTheme"
+                android:textColor="@color/white"
+                android:transitionName="name_element"
+                android:textSize="@dimen/toolbar_text_size"
+                app:fontFamily="@font/irsans_bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ir.co.common.widget.ImageViewCustom
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:transitionName="avatar_element"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:srcCompat="@drawable/ic_blank"
+            app:srcUrl="@{userInfoVm.userInfo.avatar}" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_32"
+            android:text='@{userInfoVm.userInfo.firstName.concat(" ").concat(userInfoVm.userInfo.lastName)}'
+            android:textAppearance="@style/ToolbarTheme"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_22sp"
+            app:fontFamily="@font/irsans_bold"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewCustom2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image" />
+
+
+        <ir.co.common.widget.ImageViewCustom
+            android:id="@+id/imageViewCustom"
+            android:layout_width="@dimen/dimen_24"
+            android:layout_height="@dimen/dimen_24"
+            android:layout_margin="@dimen/dimen_30"
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="@{()->userInfoVm.onBookmarkClicked()}"
+            android:padding="@dimen/dimen_2"
+            android:src="@{userInfoVm.bookmarked? @drawable/ic_bookmark_ribbon: @drawable/ic_bookmark_outline, default=@drawable/ic_bookmark_outline}"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewCustom2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageViewCustom2" />
+
+        <ir.co.common.widget.ImageViewCustom
+            android:id="@+id/imageViewCustom2"
+            android:layout_width="@dimen/dimen_24"
+            android:layout_height="@dimen/dimen_24"
+            android:layout_margin="@dimen/dimen_30"
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="@{()->userInfoVm.onMessageClicked()}"
+            android:padding="@dimen/dimen_2"
+            android:src="@drawable/ic_message"
+            app:layout_constraintBottom_toBottomOf="@+id/materialTextView"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewCustom"
+            app:layout_constraintTop_toTopOf="@+id/materialTextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

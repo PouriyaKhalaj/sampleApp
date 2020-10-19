@@ -1,5 +1,6 @@
 package ir.co.repository.di
 
+import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -50,7 +51,7 @@ class NetworkModule() {
 }
 
 fun getRepositoryComponent(
-    preferences: SharedPreferences
+    preferences: SharedPreferences,
 ): RepositoryComponent {
     return DaggerRepositoryComponent.builder()
         .networkModule(NetworkModule())
