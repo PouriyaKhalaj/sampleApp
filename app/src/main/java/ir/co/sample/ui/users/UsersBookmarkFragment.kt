@@ -10,15 +10,18 @@ import ir.co.repository.di.DataBaseModule
 import ir.co.repository.di.getRepositoryComponent
 import ir.co.sample.R
 import ir.co.sample.adapters.RvAdapterUsers
-import ir.co.sample.databinding.FragmentUsersBinding
+import ir.co.sample.databinding.FragmentUsersBookmarkBinding
 import ir.co.sample.di.users.DaggerUsersComponent
-import ir.co.sample.viewmodel.UsersViewModel
-import ir.co.sample.viewmodel.UsersViewModelImpl
+import ir.co.sample.viewmodel.UsersBookmarkViewModel
+import ir.co.sample.viewmodel.UsersBookmarkViewModelImpl
 import kotlinx.android.synthetic.main.fragment_users.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class UsersFragment : FragmentParent<UsersViewModel, FragmentUsersBinding>() {
-
+class UsersBookmarkFragment :
+    FragmentParent<UsersBookmarkViewModel, FragmentUsersBookmarkBinding>() {
     private val usersAdapter: RvAdapterUsers by lazy {
         RvAdapterUsers { user, image, name ->
             val extras = FragmentNavigatorExtras(
@@ -26,32 +29,33 @@ class UsersFragment : FragmentParent<UsersViewModel, FragmentUsersBinding>() {
                 name to "name_element"
             )
             findNavController().navigate(
-                UsersFragmentDirections.actionUsersFragmentToUserInfoFragment(
-                    user
-                ), extras
+                UsersBookmarkFragmentDirections.actionUsersBookmarkFragmentToUserInfoFragment(user),
+                extras
             )
         }
     }
 
-    @Inject
-    lateinit var factory: UsersViewModelImpl.Factory
 
-    override fun getResourceLayoutId(): Int = R.layout.fragment_users
+    @Inject
+    lateinit var factory: UsersBookmarkViewModelImpl.Factory
+
+    override fun getResourceLayoutId(): Int = R.layout.fragment_users_bookmark
 
     override fun getFactory(): ViewModelProvider.Factory = factory
 
-    override fun getViewModelClass(): Class<UsersViewModel> = UsersViewModel::class.java
+    override fun getViewModelClass(): Class<UsersBookmarkViewModel> =
+        UsersBookmarkViewModel::class.java
 
     override fun inject() {
         DaggerUsersComponent.builder()
+            .dataBaseModule(DataBaseModule(requireActivity().baseContext))
             .repositoryComponent(getRepositoryComponent(getPreferenceManager()))
-            .dataBaseModule(DataBaseModule(requireActivity().applicationContext))
             .build()
             .inject(this)
     }
 
     override fun initView() {
-        binding.usersVm = viewModel
+        binding.usersBookmarkVm = viewModel
 
         refresh.setOnRefreshListener {
             viewModel.onRefresh()
@@ -59,17 +63,13 @@ class UsersFragment : FragmentParent<UsersViewModel, FragmentUsersBinding>() {
 
         initRecyclerView()
 
-        viewModel.bookmarkPage.observe(this) {
-            findNavController().navigate(UsersFragmentDirections.actionUsersFragmentToUsersBookmarkFragment())
-        }
-
-        viewModel.getUsers().observe(this) { items ->
+        viewModel.getUsersFromDb().observe(this) { items ->
             usersAdapter.submitList(items)
         }
 
-        if (justFirstInitData) {
+        GlobalScope.launch {
+            delay(400)
             viewModel.onCreateDone()
-            justFirstInitData = false
         }
     }
 

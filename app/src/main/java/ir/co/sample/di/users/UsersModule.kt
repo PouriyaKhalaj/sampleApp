@@ -8,6 +8,7 @@ import ir.co.repository.di.DataBaseModule
 import ir.co.repository.repositories.UsersRepository
 import ir.co.repository.repositories.UsersRepositoryImpl
 import ir.co.sample.viewmodel.UserInfoViewModelImpl
+import ir.co.sample.viewmodel.UsersBookmarkViewModelImpl
 import ir.co.sample.viewmodel.UsersViewModelImpl
 import retrofit2.Retrofit
 
@@ -46,6 +47,18 @@ class UsersModule {
             settingManager = settingManager,
             usersLocalCache = usersLocalCache,
             usersRepository = usersRepository
+        )
+    }
+
+    @Provides
+    @UsersScope
+    fun provideUsersBookmarkFactory(
+        settingManager: SettingManager,
+        usersLocalCache: UsersLocalCache
+    ): UsersBookmarkViewModelImpl.Factory {
+        return UsersBookmarkViewModelImpl.Factory(
+            settingManager = settingManager,
+            usersLocalCache = usersLocalCache
         )
     }
 }

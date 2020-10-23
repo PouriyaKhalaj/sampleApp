@@ -1,10 +1,5 @@
 <resources>
     <string name="app_name">UserApp</string>
-    <string name="str_movies">Movies</string>
-    <string name="str_rating">Rating: %s (%s)</string>
-    <string name="str_awards">Awards: %s</string>
-    <string name="str_genre">Genre: %s</string>
-    <string name="str_actors">Actors: %s</string>
-    <string name="str_plot">Plot: %s</string>
     <string name="demo_app">Demo App</string>
+    <string name="bookmark_page">Bookmark</string>
 </resources>

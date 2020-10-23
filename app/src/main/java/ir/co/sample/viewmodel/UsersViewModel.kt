@@ -1,7 +1,9 @@
 package ir.co.sample.viewmodel
 
-import androidx.lifecycle.*
-import androidx.paging.DataSource
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import ir.co.common.base.AbsBaseViewModel
@@ -14,10 +16,9 @@ import ir.co.repository.repositories.UsersRepository
 import ir.co.sample.data_source.UsersDataSource
 
 abstract class UsersViewModel : AbsBaseViewModel() {
-    val bookmarkMode: MediatorLiveData<Boolean> = MediatorLiveData()
+    val bookmarkPage: SingleLiveEvent<Boolean> = SingleLiveEvent()
 
     abstract fun getUsers(): LiveData<PagedList<User>>
-    abstract fun getUsersFromDb(): LiveData<PagedList<User>>
     abstract fun onRefresh()
     abstract fun onBookmarkClicked()
 }
@@ -30,8 +31,6 @@ class UsersViewModelImpl(
     private lateinit var customerDataSource: UsersDataSource.Factory
 
     private val query = SingleLiveEvent<String>()
-    private val bookmarkQuery = SingleLiveEvent<Boolean>()
-    private var _bookmarkMode = false
 
     private val repoMovies = Transformations.map(query) { searchMovies(it) }
 
@@ -41,26 +40,8 @@ class UsersViewModelImpl(
         onEndListMessage = Transformations.switchMap(repoMovies) { it.endListMessage }
     }
 
-    override fun onBackPressedClicked() {
-        _bookmarkMode = false
-        bookmarkMode.postValue(false)
-        bookmarkQuery.postValue(null)
-        onRefresh()
-    }
-
     override fun getUsers(): LiveData<PagedList<User>> =
-        Transformations.switchMap(repoMovies) {
-            if (_bookmarkMode) MutableLiveData(null)
-            else it.data
-        }
-
-
-    override fun getUsersFromDb(): LiveData<PagedList<User>> =
-        Transformations.switchMap(bookmarkQuery) {
-            if (_bookmarkMode) getLiveDataPagedList()
-            else MutableLiveData(null)
-        }
-
+        Transformations.switchMap(repoMovies) { it.data }
 
     private fun searchMovies(query: String): UsersResponseLive {
         customerDataSource = UsersDataSource.Factory(
@@ -89,28 +70,8 @@ class UsersViewModelImpl(
 
 
     override fun onBookmarkClicked() {
-        _bookmarkMode = true
-        bookmarkQuery.postValue(true)
-        bookmarkMode.postValue(true)
+        bookmarkPage.postValue(true)
     }
-
-    private fun getLiveDataPagedList(): LiveData<PagedList<User>> {
-        val pagedListConfig =
-            PagedList.Config.Builder()
-                .setPrefetchDistance(5)
-                .setPageSize(20)
-                .setInitialLoadSizeHint(20)
-                .setEnablePlaceholders(false)
-                .build()
-
-        return LivePagedListBuilder(
-            getAllReposPagedFactory(),
-            pagedListConfig
-        ).build()
-    }
-
-    private fun getAllReposPagedFactory(): DataSource.Factory<Int, User> =
-        usersLocalCache.getUsers()
 
     override fun onCreateDone() {
         query.postValue("avatar")

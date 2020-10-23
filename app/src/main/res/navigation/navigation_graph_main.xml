@@ -1,25 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:startDestination="@id/moviesFragment">
+    app:startDestination="@id/usersFragment">
     <fragment
-        android:id="@+id/moviesFragment"
+        android:id="@+id/usersFragment"
         android:name="ir.co.sample.ui.users.UsersFragment"
-        android:label="MoviesFragment">
+        android:label="UsersFragment">
         <action
-            android:id="@+id/action_moviesFragment_to_movieInfoFragment"
-            app:destination="@id/movieInfoFragment"
+            android:id="@+id/action_usersFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_usersFragment_to_usersBookmarkFragment"
+            app:destination="@id/usersBookmarkFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
-        android:id="@+id/movieInfoFragment"
+        android:id="@+id/userInfoFragment"
         android:name="ir.co.sample.ui.users.UserInfoFragment"
-        android:label="MovieInfoFragment">
+        android:label="UserInfoFragment">
         <argument
             android:name="user"
             app:argType="ir.co.common.dto.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/usersBookmarkFragment"
+        android:name="ir.co.sample.ui.users.UsersBookmarkFragment"
+        android:label="UsersBookmarkFragment">
+        <action
+            android:id="@+id/action_usersBookmarkFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 </navigation>
